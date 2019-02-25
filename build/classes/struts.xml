@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+	<!-- 先配置包结构 -->
+	<package name="ssh" extends="struts-default" namespace="/">
+		
+		<!-- 配置action -->
+		<!-- 公共Action -->
+		
+		<!-- studentAction -->
+		<action name="studentLogin" class="studentAction" method="login">
+			<result name="login" type="chain">studentMenu</result>
+			<result name="index">/stu/index.jsp</result>
+		</action>
+		<action name="studentMenu" class="studentAction" method="menu">
+			<result name="menu">/stu/menu.jsp</result>
+		</action>
+		<action name="studentStatus" class="studentAction" method="status">
+			<result name="status">/stu/status.jsp</result>
+		</action>
+		<action name="studentCancelBookedSeat" class="studentAction" method="cancelBookedSeat">
+			<result name="cancelBooked" type="chain">studentStatus</result>
+		</action>
+		<action name="studentBookedSeat" class="studentAction" method="bookedSeat">
+			<result name="bookedSeat" type="chain">studentStatus</result>
+		</action>
+		<action name="studentAutoBookedSeat" class="studentAction" method="autoBookedSeat">
+			<result name="autoBookedSeat" type="chain">studentStatus</result>
+		</action>
+		<action name="studentUsedSeat" class="studentAction" method="usedSeat">
+			<result name="usedSeat" type="chain">studentStatus</result>
+		</action>
+		<action name="studentLeaveSeat" class="studentAction" method="leaveSeat">
+			<result name="leaveSeat" type="chain">studentStatus</result>
+		</action>
+		<action name="studentReportSeat" class="studentAction" method="reportSeat">
+			<result name="reportSeat" type="chain">studentStatus</result>
+		</action>
+		<action name="studentUpdate" class="studentAction" method="update">
+			<result name="update">/stu/data.jsp</result>
+		</action>
+		<action name="studentReadNotice" class="studentAction" method="readNotice">
+			<result name="readNotice">/noticeContent.jsp</result>
+		</action>
+		<!-- adminAction -->
+		
+		<action name="adminLogin" class="adminAction" method="login">
+			<result name="login">/adm/menu.jsp</result>
+			<result name="index">/adm/index.jsp</result>
+		</action>
+		<action name="adminMangeStudent" class="adminAction" method="mangeStudent">
+			<result name="mangeStudent">/adm/mangeStu.jsp</result>
+		</action>
+		<action name="adminMangeSeat" class="adminAction" method="mangeSeat">
+			<result name="mangeSeat">/adm/mangeSeat.jsp</result>
+		</action>
+		<action name="adminMangeCheckMessage" class="adminAction" method="mangeCheckMessage">
+			<result name="mangeCheckMessage">/adm/checkMessage.jsp</result>
+		</action>
+		<action name="adminMangeRepairMessage" class="adminAction" method="mangeRepairMessage">
+			<result name="mangeRepairMessage">/adm/repairMessage.jsp</result>
+		</action>
+		<action name="adminMangeNotice" class="adminAction" method="mangeNotice">
+			<result name="mangeNotice">/adm/notice.jsp</result>
+		</action>
+		<action name="adminAddStudent" class="adminAction" method="addStudent">
+			<result name="addStudent" type="chain">adminMangeStudent</result>
+		</action>
+		<action name="adminToUpdateStudent" class="adminAction" method="toUpdateStudent">
+			<result name="toUpdateStudent">/adm/updateStu.jsp</result>
+		</action>
+		<action name="adminUpdateStudent" class="adminAction" method="updateStudent">
+			<result name="updateStudent" type="chain">adminMangeStudent</result>
+		</action>
+		<action name="adminDeleteStudent" class="adminAction" method="deleteStudent">
+			<result name="deleteStudent" type="chain">adminMangeStudent</result>
+		</action>
+		<action name="adminAddSeat" class="adminAction" method="addSeat">
+			<result name="addSeat" type="chain">adminMangeSeat</result>
+		</action>
+		<action name="adminDeleteSeat" class="adminAction" method="deleteSeat">
+			<result name="deleteSeat" type="chain">adminMangeSeat</result>
+		</action>
+		<action name="adminToUpdateSeat" class="adminAction" method="toUpdateSeat">
+			<result name="toUpdateSeat">/adm/updateSeat.jsp</result>
+		</action>
+		<action name="adminUpdateSeat" class="adminAction" method="updateSeat">
+			<result name="updateSeat" type="chain">adminMangeSeat</result>
+		</action>
+		<action name="adminMangeAddCheckMessage" class="adminAction" method="mangeAddCheckMessage">
+			<result name="mangeAddCheckMessage">/adm/addCheckMessage.jsp</result>
+		</action>
+		<action name="adminAddCheckMessage" class="adminAction" method="addCheckMessage">
+			<result name="addCheckMessage" type="chain">adminMangeAddCheckMessage</result>
+		</action>
+		<action name="adminDeleteCheckMessage" class="adminAction" method="deleteCheckMessage">
+			<result name="deleteCheckMessage" type="chain">adminMangeCheckMessage</result>
+		</action>
+		<action name="adminAddRepairMessage" class="adminAction" method="addRepairMessage">
+			<result name="addRepairMessage" type="chain">adminMangeCheckMessage</result>
+		</action>
+		<action name="adminRepairSeat" class="adminAction" method="repairSeat">
+			<result name="repairSeat" type="chain">adminMangeRepairMessage</result>
+		</action>
+		<action name="adminReadNotice" class="adminAction" method="readNotice">
+			<result name="readNotice">/noticeContent.jsp</result>
+		</action>
+		<action name="adminAddNotice" class="adminAction" method="addNotice">
+			<result name="addNotice" type="chain">adminMangeNotice</result>
+		</action>
+		<action name="adminToUpdateNotice" class="adminAction" method="toUpdateNotice">
+			<result name="toUpdateNotice">/adm/updateNotice.jsp</result>
+		</action>
+		<action name="adminUpdateNotice" class="adminAction" method="updateNotice">
+			<result name="updateNotice" type="chain">adminMangeNotice</result>
+		</action>
+		<action name="adminDeleteNotice" class="adminAction" method="deleteNotice">
+			<result name="deleteNotice" type="chain">adminMangeNotice</result>
+		</action>
+		<action name="adminDownload" class="adminAction" method="download">
+			<result name="download" type="chain">adminMangeNotice</result>
+		</action>
+		<action name="adminDownload" class="adminAction" method="download">
+        <result name="download" type="stream">
+        <!-- 调用action中返回流的方法 -->
+
+        	<!-- 允许下载的文件类型：此处指定为所有的二进制文件类型 
+           	 在tomacat的conf/web.xml中找exe对应的<mime-type>-->
+      		  
+            <param name="contentType">application/octet-stream</param>
+            <!-- 对应Action中的属性：就是返回流的属性【其实就是getAttrInputStream()中的attrInputStream】 -->
+            <param name="inputName">attrInputStream</param>
+            <!-- 下载头，包括：浏览器显示的文件名 
+                filename=${downFileName}这不是el表达式，
+                el表达式仅能用于jsp，这是struts在配置文件中的取值符号
+            -->
+            <param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+            <!-- 缓冲区大小设置 -->
+            <param name="bufferSize">4096</param>
+        </result>   
+    	</action>
+        <action name="adminSearchStudent" class="adminAction" method="searchStudent">
+			<result name="searchStudent">/adm/mangeStu.jsp</result>
+		</action>
+		<action name="adminSearchSeat" class="adminAction" method="searchSeat">
+			<result name="searchSeat">/adm/mangeSeat.jsp</result>
+		</action>
+		<action name="adminSearchCheckMessage" class="adminAction" method="searchCheckMessage">
+			<result name="searchCheckMessage">/adm/checkMessage.jsp</result>
+		</action>
+		<action name="adminSearchRepairMessage" class="adminAction" method="searchRepairMessage">
+			<result name="searchRepairMessage">/adm/repairMessage.jsp</result>
+		</action>
+		<action name="adminSearchNotice" class="adminAction" method="searchNotice">
+			<result name="searchNotice">/adm/notice.jsp</result>
+		</action>
+		<action name="adminSearchGoodSeatMessage" class="adminAction" method="searchGoodSeatMessage">
+			<result name="searchGoodSeatMessage">/adm/addCheckMessage.jsp</result>
+		</action>
+	</package>
+</struts>

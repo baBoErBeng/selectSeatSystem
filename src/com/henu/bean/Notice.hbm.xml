@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- 配置类和表结构的映射 -->
+	<class name="com.henu.bean.Notice" table="tb_notices">
+		<!-- 配置id 
+			见到name属性，JavaBean的属性
+			见到column属性，是表结构的字段
+		-->
+		<id name="notice_id" column="notice_id">
+			<!-- 主键的生成策略 -->
+			<generator class="native"/>
+		</id>
+		
+		<!-- 配置其他的属性 -->
+		<property name="notice_title" column="notice_title"/>
+		<property name="notice_content" column="notice_content"/>
+		<property name="notice_time" column="notice_time"/>
+		<property name="notice_author" column="notice_author"/>
+		<property name="notice_file" column="notice_file"/>
+		<property name="adm_id" column="adm_id"/>
+	</class>
+	
+</hibernate-mapping>    

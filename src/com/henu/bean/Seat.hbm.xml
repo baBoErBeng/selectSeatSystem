@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- 配置类和表结构的映射 -->
+	<class name="com.henu.bean.Seat" table="tb_seats">
+		<!-- 配置id 
+			见到name属性，JavaBean的属性
+			见到column属性，是表结构的字段
+		-->
+		<id name="seat_id" column="seat_id">
+			<!-- 主键的生成策略 -->
+			<generator class="identity"/>
+		</id>
+		
+		<!-- 配置其他的属性 -->
+		<property name="seat_num" column="seat_num"/>
+		<property name="seat_classNum" column="seat_classNum"/>
+		<property name="seat_status" column="seat_status"/>
+		<property name="seat_condiction" column="seat_condiction"/>
+		<property name="stu_id" column="stu_id"/>
+		<property name="validate" column="validate"/>
+	</class>
+	
+</hibernate-mapping>    
